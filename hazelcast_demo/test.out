@@ -1,0 +1,113 @@
+/Users/hazelcast/Desktop/feast-hazelcast-online-store-sample-code/feast-demo/lib/python3.10/site-packages/hazelcast/reactor.py:1: DeprecationWarning: The asyncore module is deprecated and will be removed in Python 3.12. The recommended replacement is asyncio
+  import asyncore
+
+--- Run feast apply ---
+/Users/hazelcast/Desktop/feast-hazelcast-online-store-sample-code/feast-demo/lib/python3.10/site-packages/hazelcast/reactor.py:1: DeprecationWarning: The asyncore module is deprecated and will be removed in Python 3.12. The recommended replacement is asyncio
+  import asyncore
+/Users/hazelcast/Desktop/feast-hazelcast-online-store-sample-code/feast-demo/lib/python3.10/site-packages/feast/feature_store.py:563: RuntimeWarning: On demand feature view is an experimental feature. This API is stable, but the functionality does not scale well for offline retrieval
+  warnings.warn(
+/Users/hazelcast/Desktop/feast-hazelcast-online-store-sample-code/feast-demo/lib/python3.10/site-packages/feast/infra/offline_stores/file_source.py:161: FutureWarning: 'ParquetDataset.schema' attribute is deprecated as of pyarrow 5.0.0 and will be removed in a future version. Specify 'use_legacy_dataset=False' while constructing the ParquetDataset, and then use the '.schema' attribute instead (which will return an Arrow schema instead of a Parquet schema).
+  schema = ParquetDataset(path).schema.to_arrow_schema()
+/Users/hazelcast/Desktop/feast-hazelcast-online-store-sample-code/feast-demo/lib/python3.10/site-packages/feast/feature_store.py:563: RuntimeWarning: On demand feature view is an experimental feature. This API is stable, but the functionality does not scale well for offline retrieval
+  warnings.warn(
+Created entity driver
+Created feature view driver_hourly_stats_fresh
+Created feature view driver_hourly_stats
+Created on demand feature view transformed_conv_rate
+Created on demand feature view transformed_conv_rate_fresh
+Created feature service driver_activity_v1
+Created feature service driver_activity_v2
+Created feature service driver_activity_v3
+
+10/12/2022 03:45:42 PM hazelcast.lifecycle INFO: HazelcastClient 5.1 is STARTING
+10/12/2022 03:45:42 PM hazelcast.lifecycle INFO: HazelcastClient 5.1 is STARTED
+10/12/2022 03:45:42 PM hazelcast.connection INFO: Trying to connect to Address(host=localhost, port=5701)
+10/12/2022 03:45:42 PM hazelcast.lifecycle INFO: HazelcastClient 5.1 is CONNECTED
+10/12/2022 03:45:42 PM hazelcast.connection INFO: Authenticated with server Address(host=127.0.0.1, port=5701):9c9fd751-d2f5-404c-9cf8-d4afa3c0e0bf, server version: 5.1.2, local address: Address(host=127.0.0.1, port=58038)
+10/12/2022 03:45:42 PM hazelcast.cluster INFO:
+
+Members [1] {
+	Member [127.0.0.1]:5701 - 9c9fd751-d2f5-404c-9cf8-d4afa3c0e0bf
+}
+
+10/12/2022 03:45:42 PM hazelcast.client INFO: Client started
+Deploying infrastructure for driver_hourly_stats_fresh
+Deploying infrastructure for driver_hourly_stats
+
+--- Historical features for training ---
+   driver_id  ... conv_rate_plus_val2
+0       1001  ...           10.047982
+1       1002  ...           20.115869
+2       1003  ...           30.417296
+
+[3 rows x 10 columns]
+
+--- Historical features for batch scoring ---
+   driver_id  ... conv_rate_plus_val2
+0       1001  ...           10.173871
+1       1002  ...           20.561651
+2       1003  ...           30.007060
+
+[3 rows x 10 columns]
+
+--- Load features into online store ---
+Materializing 2 feature views to 2022-10-12 15:45:55+03:00 into the feast_custom_online_store.hazelcast_online_store.HazelcastOnlineStore online store.
+
+driver_hourly_stats_fresh from 2022-10-11 12:45:55+03:00 to 2022-10-12 15:45:55+03:00:
+100%|████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 194.69it/s]
+driver_hourly_stats from 2022-10-11 12:45:55+03:00 to 2022-10-12 18:45:55+03:00:
+100%|████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 323.31it/s]
+
+--- Online features ---
+acc_rate  :  [1.0, 0.769856333732605]
+conv_rate_plus_val1  :  [1001.0, 1001.668503165245]
+conv_rate_plus_val2  :  [2001.0, 2002.668503165245]
+driver_id  :  [1001, 1002]
+
+--- Online features retrieved (instead) through a feature service---
+conv_rate  :  [1.0, 0.6685031652450562]
+conv_rate_plus_val1  :  [1001.0, 1001.668503165245]
+conv_rate_plus_val2  :  [2001.0, 2002.668503165245]
+driver_id  :  [1001, 1002]
+
+--- Online features retrieved (using feature service v3, which uses a feature view with a push source---
+acc_rate  :  [1.0, 0.769856333732605]
+avg_daily_trips  :  [1000, 13]
+conv_rate  :  [1.0, 0.6685031652450562]
+conv_rate_plus_val1  :  [1001.0, 1001.668503165245]
+conv_rate_plus_val2  :  [2001.0, 2002.668503165245]
+driver_id  :  [1001, 1002]
+
+--- Simulate a stream event ingestion of the hourly stats df ---
+   driver_id            event_timestamp  ... acc_rate  avg_daily_trips
+0       1001 2022-10-12 15:45:55.619225  ...      1.0             1000
+
+[1 rows x 6 columns]
+/Users/hazelcast/Desktop/feast-hazelcast-online-store-sample-code/feast-demo/lib/python3.10/site-packages/feast/infra/offline_stores/file_source.py:161: FutureWarning: 'ParquetDataset.schema' attribute is deprecated as of pyarrow 5.0.0 and will be removed in a future version. Specify 'use_legacy_dataset=False' while constructing the ParquetDataset, and then use the '.schema' attribute instead (which will return an Arrow schema instead of a Parquet schema).
+  schema = ParquetDataset(path).schema.to_arrow_schema()
+/Users/hazelcast/Desktop/feast-hazelcast-online-store-sample-code/feast-demo/lib/python3.10/site-packages/feast/infra/offline_stores/file_source.py:161: FutureWarning: 'ParquetDataset.schema' attribute is deprecated as of pyarrow 5.0.0 and will be removed in a future version. Specify 'use_legacy_dataset=False' while constructing the ParquetDataset, and then use the '.schema' attribute instead (which will return an Arrow schema instead of a Parquet schema).
+  schema = ParquetDataset(path).schema.to_arrow_schema()
+
+--- Online features again with updated values from a stream push---
+acc_rate  :  [1.0, 0.769856333732605]
+avg_daily_trips  :  [1000, 13]
+conv_rate  :  [1.0, 0.6685031652450562]
+conv_rate_plus_val1  :  [1001.0, 1001.668503165245]
+conv_rate_plus_val2  :  [2001.0, 2002.668503165245]
+driver_id  :  [1001, 1002]
+
+--- Run feast teardown ---
+/Users/hazelcast/Desktop/feast-hazelcast-online-store-sample-code/feast-demo/lib/python3.10/site-packages/hazelcast/reactor.py:1: DeprecationWarning: The asyncore module is deprecated and will be removed in Python 3.12. The recommended replacement is asyncio
+  import asyncore
+10/12/2022 03:45:57 PM hazelcast.lifecycle INFO: HazelcastClient 5.1 is STARTING
+10/12/2022 03:45:57 PM hazelcast.lifecycle INFO: HazelcastClient 5.1 is STARTED
+10/12/2022 03:45:57 PM hazelcast.connection INFO: Trying to connect to Address(host=localhost, port=5701)
+10/12/2022 03:45:57 PM hazelcast.lifecycle INFO: HazelcastClient 5.1 is CONNECTED
+10/12/2022 03:45:57 PM hazelcast.connection INFO: Authenticated with server Address(host=127.0.0.1, port=5701):9c9fd751-d2f5-404c-9cf8-d4afa3c0e0bf, server version: 5.1.2, local address: Address(host=127.0.0.1, port=58049)
+10/12/2022 03:45:57 PM hazelcast.cluster INFO:
+
+Members [1] {
+	Member [127.0.0.1]:5701 - 9c9fd751-d2f5-404c-9cf8-d4afa3c0e0bf
+}
+
+10/12/2022 03:45:57 PM hazelcast.client INFO: Client started

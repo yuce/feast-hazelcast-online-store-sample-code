@@ -1,9 +1,10 @@
-project: hazelcast_feature_repo
+project: hazelcast_demo
 # By default, the registry is a file (but can be turned into a more scalable SQL-backed registry)
 registry: data/registry.db
 # The provider primarily specifies default offline / online stores & storing the registry in a given cloud
 provider: local
 online_store:
-    type: sqlite
-    path: data/online_store.db
+    type: feast_custom_online_store.hazelcast_online_store.HazelcastOnlineStore
+    cluster_name: dev
+    cluster_members: localhost:5701
 entity_key_serialization_version: 2
