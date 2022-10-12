@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9935ce9b-4101-496d-93a2-192b7120cb47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hazelcast_demo/test.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/feast-hazelcast-online-store-sample-code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/feast-hazelcast-online-store-sample-code.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hazelcast_feature_repo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hazelcast_feature_repo/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hazelcast_feature_repo/feature_repo/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hazelcast_feature_repo/feature_repo/data/driver_stats.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hazelcast_feature_repo/feature_repo/example_repo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hazelcast_feature_repo/feature_repo/feature_store.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hazelcast_feature_repo/feature_repo/test_workflow.py" beforeDir="false" />
+    <list default="true" id="9935ce9b-4101-496d-93a2-192b7120cb47" name="Changes" comment="Hazelcast Online Store Demo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hazelcast_demo/test.out" beforeDir="false" afterPath="$PROJECT_DIR$/hazelcast_demo/test.out" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,8 +88,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665577971287</updated>
-      <workItem from="1665577972687" duration="870000" />
+      <workItem from="1665577972687" duration="1368000" />
     </task>
+    <task id="LOCAL-00001" summary="Hazelcast Online Store Demo">
+      <created>1665578879201</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665578879201</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +113,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Hazelcast Online Store Demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hazelcast Online Store Demo" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/feast_hazelcast_online_store_sample_code$test_workflow.coverage" NAME="test_workflow Coverage Results" MODIFIED="1665578739814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hazelcast_demo/feature_repo" />
