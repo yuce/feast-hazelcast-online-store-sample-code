@@ -1,0 +1,2 @@
+feast==0.26.0
+hazelcast-python-client==5.1
