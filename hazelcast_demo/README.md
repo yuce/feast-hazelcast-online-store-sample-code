@@ -1,4 +1,17 @@
 # Feast Quickstart
+
+Create a virtual environment and source it:
+```
+$ python3 -m venv venv
+$ source venv/bin/activate
+```
+Install the dependencies: 
+```
+pip install -r requirements.txt
+```
+
+Make sure Hazelcast is running on the default address: `localhost:5701`
+
 If you haven't already, check out the quickstart guide on Feast's website (http://docs.feast.dev/quickstart), which 
 uses this repo. A quick view of what's in this repository's `feature_repo/` directory:
 

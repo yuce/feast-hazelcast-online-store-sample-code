@@ -1,6 +1,7 @@
 # This is an example feature definition file
 
 from datetime import timedelta
+import os
 
 import pandas as pd
 
@@ -20,12 +21,14 @@ from feast.types import Float32, Float64, Int64
 # fetch features.
 driver = Entity(name="driver", join_keys=["driver_id"])
 
+current_dir =  os.path.abspath(os.path.split(__file__)[0])
+
 # Read data from parquet files. Parquet is convenient for local development mode. For
 # production, you can use your favorite DWH, such as BigQuery. See Feast documentation
 # for more info.
 driver_stats_source = FileSource(
     name="driver_hourly_stats_source",
-    path="/Users/hazelcast/Desktop/feast-hazelcast-online-store-sample-code/hazelcast_demo/feature_repo/data/driver_stats.parquet",
+    path=os.path.join(current_dir, "data/driver_stats.parquet"),
     timestamp_field="event_timestamp",
     created_timestamp_column="created",
 )
